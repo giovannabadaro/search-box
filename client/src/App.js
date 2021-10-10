@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
+import './assets/styles/main.scss'
 
 const App = () => {
-  const [teste, setTeste] = useState('a');
-  setTimeout(() => setTeste('oola'), 3000)
   return (
-    <h1>
-     hello, this  my ininitial project ☘️
-     <p>
-       {teste}
-     </p>
-    </h1>
+    <div>
+      <h1>hello, this my initial project ☘️</h1>
+    </div>
   )
 }
 
-export default App;
+export default App
