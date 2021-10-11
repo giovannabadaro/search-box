@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerBounds}>
-        <Link to="/" activeClassName="current">
+        <Link to="/">
           <img src={logoSM} alt="" />
         </Link>
         <form>
