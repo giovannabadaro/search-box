@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import Routes from './Routes'
 
-import './assets/styles/main.scss'
+import './assets/styles/_scaffolding.scss'
 
 const App = () => {
   return (
