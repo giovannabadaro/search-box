@@ -1,0 +1,12 @@
+@import '../../assets/styles/variables';
+
+.whitePaperBox {
+  margin: 0 1rem;
+  box-shadow: $box-shadow-1;
+  border-radius: 0.3rem;
+  background-color: $white;
+  max-width: 60rem;
+  @media (min-width: 1010px) {
+    margin: 0 auto;
+  }
+}
