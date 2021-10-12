@@ -1,19 +1,23 @@
 import React from 'react'
-
 import { Switch, Route } from 'react-router'
+
 import LazyImport from './lazy'
 
-const Home = LazyImport({
-  loader: () => import('../pages/Home'),
+const HomePage = LazyImport({
+  loader: () => import('../pages/HomePage'),
 })
-const ProductList = LazyImport({
-  loader: () => import('../pages/ProductList'),
+const ProductListPage = LazyImport({
+  loader: () => import('../pages/ProductListPage'),
+})
+const ProductDescriptionPage = LazyImport({
+  loader: () => import('../pages/ProductDescriptionPage'),
 })
 
 const Routes = () => (
   <Switch>
-    <Route component={Home} exact path="/" />
-    <Route component={ProductList} exact path="/items" />
+    <Route component={HomePage} exact path="/" />
+    <Route component={ProductListPage} exact path="/items" />
+    <Route component={ProductDescriptionPage} exact path="/items/:id" />
   </Switch>
 )
 

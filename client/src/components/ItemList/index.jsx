@@ -8,7 +8,7 @@ const ItemList = () => {
   return (
     <ul>
       <li className={styles.itemContent}>
-        <Link to="/items:id">
+        <Link to="/items/:id">
           <div className={styles.itemProductImageBox}>
             <img src={imgTeste1} alt="" />
           </div>
@@ -22,7 +22,7 @@ const ItemList = () => {
         </Link>
       </li>
       <li className={styles.itemContent}>
-        <Link to="/items:id">
+        <Link to="/items/:id">
           <div className={styles.itemProductImageBox}>
             <img src={imgTeste1} alt="" />
           </div>
@@ -36,7 +36,7 @@ const ItemList = () => {
         </Link>
       </li>
       <li className={styles.itemContent}>
-        <Link to="/items:id">
+        <Link to="/items/:id">
           <div className={styles.itemProductImageBox}>
             <img src={imgTeste1} alt="" />
           </div>
@@ -50,7 +50,7 @@ const ItemList = () => {
         </Link>
       </li>
       <li className={styles.itemContent}>
-        <Link to="/items:id">
+        <Link to="/items/:id">
           <div className={styles.itemProductImageBox}>
             <img src={imgTeste1} alt="" />
           </div>

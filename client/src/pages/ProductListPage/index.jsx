@@ -3,7 +3,7 @@ import ItemList from '../../components/ItemList'
 import WhitePaper from '../../components/WhitePaper'
 import BreadCrumb from '../../components/BreadCrumb'
 
-const ProductList = () => {
+const ProductListPage = () => {
   return (
     <>
       <BreadCrumb />
@@ -13,4 +13,4 @@ const ProductList = () => {
     </>
   )
 }
-export default ProductList
+export default ProductListPage
