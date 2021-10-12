@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Home = () => {
+const HomePage = () => {
   return <section />
 }
-export default Home
+export default HomePage
