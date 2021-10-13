@@ -1,11 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import imgTeste1 from '../../assets/images/imgteste1.jpg'
 import styles from './styles.module.scss'
 
 const ItemList = ({ items }) => {
-  console.log(items)
   return (
     <ul>
       {items.map((item) => (

@@ -8,11 +8,11 @@ import getProductList from '../../utils/GetProductList'
 
 const ProductListPage = () => {
   const location = useLocation()
+  const queryParams = new URLSearchParams(location.search)
+  const query = queryParams.get('search')
   const [itemsList, setItemsList] = useState({ categories: [], items: [] })
 
   const handleProductList = async () => {
-    const queryParams = new URLSearchParams(location.search)
-    const query = queryParams.get('search')
     const response = await getProductList(query)
     const {
       data: { categories, items },
@@ -23,7 +23,7 @@ const ProductListPage = () => {
   }
   useEffect(() => {
     handleProductList()
-  }, [])
+  }, [query])
   return (
     <>
       <BreadCrumb categories={itemsList.categories} />
