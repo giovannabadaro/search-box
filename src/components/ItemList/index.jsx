@@ -6,9 +6,13 @@ import styles from './styles.module.scss'
 const ItemList = ({ items }) => {
   return (
     <ul>
-      {items.map((item) => (
+      {items?.map((item) => (
         <li key={item.id} className={styles.itemContent}>
-          <Link to="/items/:id">
+          <Link
+            to={{
+              pathname: `/items/${item.id}`,
+            }}
+          >
             <div className={styles.itemProductImageBox}>
               <img src={item.picture} alt="" />
             </div>
