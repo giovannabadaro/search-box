@@ -1,6 +1,7 @@
 import React from 'react'
+import Error from '../../components/Error'
 
 const HomePage = () => {
-  return <section />
+  return <Error message="No encontrado!" />
 }
 export default HomePage

@@ -12,14 +12,13 @@ const ProductDescriptionPage = () => {
   const [itemDescription, setItemDescription] = useState({ item: {} })
   const location = useLocation()
   const categories = location.state
-  console.log(categories)
 
   const handleProductList = async () => {
     const response = await getProductDescription(id)
     const {
       data: { item },
     } = response
-    if (Object.values(response).length) {
+    if (Object.values(response.data.item).length) {
       setItemDescription({ item: item })
     }
   }

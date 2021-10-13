@@ -4,18 +4,18 @@ import Button from '../Button'
 
 import styles from './styles.module.scss'
 import variables from '../../assets/styles/_variables.scss'
+import Loader from '../Loader'
 
 const ProductDetail = ({ item }) => {
-  return (
+  const { picture, condition, sold_quantity, title, price, description } = item
+  return !!item ? (
     <div className={styles.productDetailContainer}>
       <div className={styles.productDetailDescriptionContent}>
-        <img src={item?.picture} alt="" />
+        <img src={picture} alt="" />
         <div className={styles.productDetailBuyContainer}>
-          <span>{`${item?.condition || ''} - ${
-            item?.sold_quantity || ''
-          } vendidos`}</span>
-          <h1>{item?.title}</h1>
-          <span>{`$ ${item?.price?.amount || ''}`}</span>
+          <span>{`${condition || ''} - ${sold_quantity || ''} vendidos`}</span>
+          <h1>{title}</h1>
+          <span>{`$ ${price?.amount || ''}`}</span>
           <Button
             type="submit"
             btnColor={variables.blue}
@@ -27,10 +27,12 @@ const ProductDetail = ({ item }) => {
         </div>
       </div>
       <div className={styles.productDetailDescription}>
-        <h2>Descripción del producto</h2>
-        <p>{item?.description}</p>
+        <h2>{description && 'Descripción del producto'}</h2>
+        <p>{description}</p>
       </div>
     </div>
+  ) : (
+    <Loader />
   )
 }
 export default ProductDetail

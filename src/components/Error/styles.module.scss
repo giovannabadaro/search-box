@@ -1,0 +1,10 @@
+@import '../../assets/styles/variables';
+
+.error {
+  font-size: $font-size-emd;
+  color: $gray-2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}

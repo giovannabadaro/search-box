@@ -2,17 +2,19 @@
 
 .breadCrumbContainer {
   display: flex;
+  flex-direction: column;
   background-color: $gray-1;
-  height: 2rem;
-  margin: 1rem;
+  margin: 1rem 1rem 0 1rem;
 
   li {
-    font-size: $font-size-sm;
+    font-size: $font-size-smmd;
     color: $gray-3;
-    margin-right: 0.5rem;
+
+    &:last-child {
+      font-weight: bold;
+    }
 
     &:not(:last-child)::after {
-      font-weight: bold;
       content: '>';
       margin-left: 0.5rem;
     }
@@ -21,5 +23,12 @@
   @media (min-width: 1366px) {
     max-width: 84rem;
     margin: 1rem auto;
+  }
+  @media (min-width: 768px) {
+    flex-direction: row;
+
+    li {
+      margin-right: 0.5rem;
+    }
   }
 }
