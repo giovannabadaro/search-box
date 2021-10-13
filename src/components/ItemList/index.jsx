@@ -4,65 +4,26 @@ import { Link } from 'react-router-dom'
 import imgTeste1 from '../../assets/images/imgteste1.jpg'
 import styles from './styles.module.scss'
 
-const ItemList = () => {
+const ItemList = ({ items }) => {
+  console.log(items)
   return (
     <ul>
-      <li className={styles.itemContent}>
-        <Link to="/items/:id">
-          <div className={styles.itemProductImageBox}>
-            <img src={imgTeste1} alt="" />
-          </div>
-          <div className={styles.itemProductDescription}>
-            <span>$ 1.980</span>
-            <h2>Auricular Tws Inalambrico Bluetooth P/ iPhone Moto Samsung</h2>
-          </div>
-          <div className={styles.itemProductLocation}>
-            <span>Capital Federal</span>
-          </div>
-        </Link>
-      </li>
-      <li className={styles.itemContent}>
-        <Link to="/items/:id">
-          <div className={styles.itemProductImageBox}>
-            <img src={imgTeste1} alt="" />
-          </div>
-          <div className={styles.itemProductDescription}>
-            <span>$ 1.980</span>
-            <h2>Auricular Tws Inalambrico Bluetooth P/ iPhone Moto Samsung</h2>
-          </div>
-          <div className={styles.itemProductLocation}>
-            <span>Capital Federal</span>
-          </div>
-        </Link>
-      </li>
-      <li className={styles.itemContent}>
-        <Link to="/items/:id">
-          <div className={styles.itemProductImageBox}>
-            <img src={imgTeste1} alt="" />
-          </div>
-          <div className={styles.itemProductDescription}>
-            <span>$ 1.980</span>
-            <h2>Auricular Tws Inalambrico Bluetooth P/ iPhone Moto Samsung</h2>
-          </div>
-          <div className={styles.itemProductLocation}>
-            <span>Capital Federal</span>
-          </div>
-        </Link>
-      </li>
-      <li className={styles.itemContent}>
-        <Link to="/items/:id">
-          <div className={styles.itemProductImageBox}>
-            <img src={imgTeste1} alt="" />
-          </div>
-          <div className={styles.itemProductDescription}>
-            <span>$ 1.980</span>
-            <h2>Auricular Tws Inalambrico Bluetooth P/ iPhone Moto Samsung</h2>
-          </div>
-          <div className={styles.itemProductLocation}>
-            <span>Capital Federal</span>
-          </div>
-        </Link>
-      </li>
+      {items.map((item) => (
+        <li key={item.id} className={styles.itemContent}>
+          <Link to="/items/:id">
+            <div className={styles.itemProductImageBox}>
+              <img src={item.picture} alt="" />
+            </div>
+            <div className={styles.itemProductDescription}>
+              <span>$ {item.price.amount}</span>
+              <h2>{item.title}</h2>
+            </div>
+            <div className={styles.itemProductLocation}>
+              <span>Capital Federal</span>
+            </div>
+          </Link>
+        </li>
+      ))}
     </ul>
   )
 }

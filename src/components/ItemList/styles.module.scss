@@ -26,14 +26,13 @@
   justify-content: center;
   img {
     border-radius: 0.3rem;
-    width: 16rem;
-    height: 12rem;
+    width: 10rem;
   }
   @media (min-width: 600px) {
     justify-content: flex-start;
     margin-right: 1.5rem;
     img {
-      width: 12rem;
+      width: 10rem;
     }
   }
 }

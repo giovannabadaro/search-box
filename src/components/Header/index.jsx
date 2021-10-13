@@ -1,20 +1,32 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+
+import getProductList from '../../utils/GetProductList'
 
 import logoSM from '../../assets/images/logo-sm.png'
 import searchIcon from '../../assets/images/search-icon.svg'
 import styles from './styles.module.scss'
 
 const Header = () => {
+  const history = useHistory()
+  const [query, setQuery] = useState('')
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    history.push(`/items?search=${query}`)
+  }
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerBounds}>
         <Link to="/">
           <img src={logoSM} alt="" />
         </Link>
-        <form>
-          <input type="text" placeholder="Nunca dejes de buscar" />
-          <button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Nunca dejes de buscar"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button type="submit">
             <img src={searchIcon} alt="" />
           </button>
         </form>
