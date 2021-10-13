@@ -18,7 +18,7 @@ const ItemList = ({ itemsList }) => {
             }}
           >
             <div className={styles.itemProductImageBox}>
-              <img src={item.picture} alt="" />
+              <img src={item.picture} alt={item.title} />
             </div>
             <div className={styles.itemProductDescription}>
               <div>

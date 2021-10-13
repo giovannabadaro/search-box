@@ -18,15 +18,16 @@ const Header = () => {
     <header className={styles.headerContainer}>
       <div className={styles.headerBounds}>
         <Link to="/">
-          <img src={logoSM} alt="" />
+          <img src={logoSM} alt="Mercado Libre" />
         </Link>
         <form onSubmit={handleSubmit}>
           <input
+            aria-label="Ingresá lo que quieras encontrar"
             type="text"
             placeholder="Nunca dejes de buscar"
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button type="submit">
+          <button aria-label="Buscar" type="submit">
             <img src={searchIcon} alt="" />
           </button>
         </form>

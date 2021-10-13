@@ -11,9 +11,9 @@ const ProductDetail = ({ item }) => {
   return !!item ? (
     <div className={styles.productDetailContainer}>
       <div className={styles.productDetailDescriptionContent}>
-        <img src={picture} alt="" />
+        <img src={picture} alt={title} />
         <div className={styles.productDetailBuyContainer}>
-          <span>{`${condition || ''} - ${sold_quantity || ''} vendidos`}</span>
+          <span>{`${condition || ''} - ${sold_quantity || '0'} vendidos`}</span>
           <h1>{title}</h1>
           <span>{`$ ${price?.amount || ''}`}</span>
           <Button
