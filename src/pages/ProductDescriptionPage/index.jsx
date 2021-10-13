@@ -10,6 +10,9 @@ import getProductDescription from '../../utils/GetProductDescription'
 const ProductDescriptionPage = () => {
   const { id } = useParams()
   const [itemDescription, setItemDescription] = useState({ item: {} })
+  const location = useLocation()
+  const categories = location.state
+  console.log(categories)
 
   const handleProductList = async () => {
     const response = await getProductDescription(id)
@@ -25,7 +28,7 @@ const ProductDescriptionPage = () => {
   }, [id])
   return (
     <>
-      <BreadCrumb />
+      <BreadCrumb categories={categories} />
       <WhitePaper>
         <ProductDetail item={itemDescription?.item} />
       </WhitePaper>

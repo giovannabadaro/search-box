@@ -1,7 +1,25 @@
 @import '../../assets/styles/variables';
 
 .breadCrumbContainer {
-  max-width: 60rem;
+  display: flex;
   background-color: $gray-1;
   height: 2rem;
+  margin: 1rem;
+
+  li {
+    font-size: $font-size-sm;
+    color: $gray-3;
+    margin-right: 0.5rem;
+
+    &:not(:last-child)::after {
+      font-weight: bold;
+      content: '>';
+      margin-left: 0.5rem;
+    }
+  }
+
+  @media (min-width: 1366px) {
+    max-width: 84rem;
+    margin: 1rem auto;
+  }
 }

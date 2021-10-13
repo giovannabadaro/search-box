@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 import styles from './styles.module.scss'
 
-const ItemList = ({ items }) => {
+const ItemList = ({ itemsList }) => {
+  const { categories, items } = itemsList
   return (
     <ul>
       {items?.map((item) => (
@@ -11,6 +12,7 @@ const ItemList = ({ items }) => {
           <Link
             to={{
               pathname: `/items/${item.id}`,
+              state: categories,
             }}
           >
             <div className={styles.itemProductImageBox}>

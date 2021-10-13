@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import ItemList from '../../components/ItemList'
 import WhitePaper from '../../components/WhitePaper'
@@ -28,7 +28,7 @@ const ProductListPage = () => {
     <>
       <BreadCrumb categories={itemsList.categories} />
       <WhitePaper>
-        <ItemList items={itemsList.items} />
+        <ItemList itemsList={itemsList} />
       </WhitePaper>
     </>
   )
