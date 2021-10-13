@@ -1,69 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import imgTeste1 from '../../assets/images/imgteste1.jpg'
 import styles from './styles.module.scss'
+import freeShipping from '../../assets/images/free_shipping.png'
+import Loader from '../Loader'
 
-const ItemList = () => {
-  return (
+const ItemList = ({ itemsList }) => {
+  const { categories, items } = itemsList
+  return !!itemsList ? (
     <ul>
-      <li className={styles.itemContent}>
-        <Link to="/items/:id">
-          <div className={styles.itemProductImageBox}>
-            <img src={imgTeste1} alt="" />
-          </div>
-          <div className={styles.itemProductDescription}>
-            <span>$ 1.980</span>
-            <h2>Auricular Tws Inalambrico Bluetooth P/ iPhone Moto Samsung</h2>
-          </div>
-          <div className={styles.itemProductLocation}>
-            <span>Capital Federal</span>
-          </div>
-        </Link>
-      </li>
-      <li className={styles.itemContent}>
-        <Link to="/items/:id">
-          <div className={styles.itemProductImageBox}>
-            <img src={imgTeste1} alt="" />
-          </div>
-          <div className={styles.itemProductDescription}>
-            <span>$ 1.980</span>
-            <h2>Auricular Tws Inalambrico Bluetooth P/ iPhone Moto Samsung</h2>
-          </div>
-          <div className={styles.itemProductLocation}>
-            <span>Capital Federal</span>
-          </div>
-        </Link>
-      </li>
-      <li className={styles.itemContent}>
-        <Link to="/items/:id">
-          <div className={styles.itemProductImageBox}>
-            <img src={imgTeste1} alt="" />
-          </div>
-          <div className={styles.itemProductDescription}>
-            <span>$ 1.980</span>
-            <h2>Auricular Tws Inalambrico Bluetooth P/ iPhone Moto Samsung</h2>
-          </div>
-          <div className={styles.itemProductLocation}>
-            <span>Capital Federal</span>
-          </div>
-        </Link>
-      </li>
-      <li className={styles.itemContent}>
-        <Link to="/items/:id">
-          <div className={styles.itemProductImageBox}>
-            <img src={imgTeste1} alt="" />
-          </div>
-          <div className={styles.itemProductDescription}>
-            <span>$ 1.980</span>
-            <h2>Auricular Tws Inalambrico Bluetooth P/ iPhone Moto Samsung</h2>
-          </div>
-          <div className={styles.itemProductLocation}>
-            <span>Capital Federal</span>
-          </div>
-        </Link>
-      </li>
+      {items?.map((item) => (
+        <li key={item.id} className={styles.itemContent}>
+          <Link
+            to={{
+              pathname: `/items/${item.id}`,
+              state: categories,
+            }}
+          >
+            <div className={styles.itemProductImageBox}>
+              <img src={item.picture} alt={item.title} />
+            </div>
+            <div className={styles.itemProductDescription}>
+              <div>
+                <span>$ {item.price.amount}</span>
+                {item.free_shipping && <img src={freeShipping}></img>}
+              </div>
+              <h2>{item.title}</h2>
+            </div>
+            <div className={styles.itemProductLocation}>
+              <span>Capital Federal</span>
+            </div>
+          </Link>
+        </li>
+      ))}
     </ul>
+  ) : (
+    <Loader />
   )
 }
 

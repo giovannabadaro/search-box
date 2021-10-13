@@ -10,10 +10,10 @@
 .headerBounds {
   display: flex;
   align-items: center;
-  max-width: 60rem;
+  max-width: 84rem;
   height: 100%;
   margin: 0 1rem;
-  @media (min-width: 1010px) {
+  @media (min-width: 1366px) {
     margin: 0 auto;
   }
   form {
