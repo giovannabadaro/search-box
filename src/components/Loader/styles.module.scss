@@ -1,0 +1,84 @@
+@import '../../assets/styles/variables';
+
+.loaderContainer {
+  height: 10rem;
+  padding: 5rem;
+}
+
+.dotPulse {
+  margin: auto;
+  position: relative;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 1rem;
+  background-color: $gray-2;
+  color: $gray-2;
+  box-shadow: 9999px 0 0 -5px $gray-2;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+}
+
+.dotPulse::before,
+.dotPulse::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: $gray-2;
+  color: $gray-2;
+}
+
+.dotPulse::before {
+  box-shadow: 9984px 0 0 -5px $gray-2;
+  animation: dotPulseBefore 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.dotPulse::after {
+  box-shadow: 10014px 0 0 -5px $gray-2;
+  animation: dotPulseAfter 1.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px $gray-2;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px $gray-2;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px $gray-2;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px $gray-2;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px $gray-2;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px $gray-2;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px $gray-2;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px $gray-2;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px $gray-2;
+  }
+}
