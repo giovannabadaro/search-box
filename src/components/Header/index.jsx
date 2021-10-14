@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-import getProductList from '../../utils/GetProductList'
-
 import logoSM from '../../assets/images/logo-sm.png'
 import searchIcon from '../../assets/images/search-icon.svg'
 import styles from './styles.module.scss'

@@ -4,11 +4,10 @@ import Button from '../Button'
 
 import styles from './styles.module.scss'
 import variables from '../../assets/styles/_variables.scss'
-import Loader from '../Loader'
 
 const ProductDetail = ({ item }) => {
   const { picture, condition, sold_quantity, title, price, description } = item
-  return !!item ? (
+  return (
     <div className={styles.productDetailContainer}>
       <div className={styles.productDetailDescriptionContent}>
         <img src={picture} alt={title} />
@@ -31,8 +30,6 @@ const ProductDetail = ({ item }) => {
         <p>{description}</p>
       </div>
     </div>
-  ) : (
-    <Loader />
   )
 }
 export default ProductDetail

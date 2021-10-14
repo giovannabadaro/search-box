@@ -6,13 +6,16 @@ import WhitePaper from '../../components/WhitePaper'
 import BreadCrumb from '../../components/BreadCrumb'
 import getProductList from '../../utils/GetProductList'
 import Error from '../../components/Error'
+import Loader from '../../components/Loader'
 
 const ProductListPage = () => {
   const location = useLocation()
   const queryParams = new URLSearchParams(location.search)
   const query = queryParams.get('search')
   const [itemsList, setItemsList] = useState({ categories: [], items: [] })
-  const [notFound, setNotFound] = useState(false)
+  const [renderConditional, setRenderConditional] = useState({
+    status: 'Loading',
+  })
 
   const handleProductList = async () => {
     const response = await getProductList(query)
@@ -23,24 +26,32 @@ const ProductListPage = () => {
 
     if (Object.values(response.data.items).length) {
       setItemsList({ categories: categories, items: items })
-      setNotFound(false)
+      setRenderConditional({ status: 'Completed' })
     } else {
-      setNotFound(true)
+      setRenderConditional({ status: 'NotFound' })
     }
   }
   useEffect(() => {
     handleProductList()
   }, [query])
 
-  return !notFound ? (
+  return (
     <>
-      <BreadCrumb categories={itemsList.categories} />
-      <WhitePaper>
-        <ItemList itemsList={itemsList} />
-      </WhitePaper>
+      {
+        {
+          Loading: <Loader />,
+          NotFound: <Error message="No encontrado!" />,
+          Completed: (
+            <>
+              <BreadCrumb categories={itemsList.categories} />
+              <WhitePaper>
+                <ItemList itemsList={itemsList} />
+              </WhitePaper>
+            </>
+          ),
+        }[renderConditional.status]
+      }
     </>
-  ) : (
-    <Error message="No encontrado!" />
   )
 }
 export default ProductListPage
