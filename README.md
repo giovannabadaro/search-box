@@ -15,7 +15,7 @@
 
 > Esse projeto foi contruído pensando em Performance, SEO, Usabilidade e Escalabilidade
 
-##### Corresponde a esses pilares, temos: 
+##### Correspondente a esses pilares, temos: 
 - Usabilidade:
     - Esse projeto foi contruído utilizando o método mobile first, toda media query, tem a sintaxe ``min-width``
     - O projeto tem suporte de dispositivos mobile de no min 320px e web no max 3000px
